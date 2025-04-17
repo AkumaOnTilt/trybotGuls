@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: smartplus-bot
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python bot.py"
+    envVars:
+      - key: API_TOKEN
+        value: "7910071726:AAFgHCgGpGA2j1mNZdL5N8xm9jhd4VC2gMU"
+      - key: ADMIN_ID
+        value: "1611776955"
