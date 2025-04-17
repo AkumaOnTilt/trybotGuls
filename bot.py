@@ -187,6 +187,10 @@ async def save_correction(message: types.Message, state: FSMContext):
 
 # Запуск
 if __name__ == "__main__":
-    import logging
-    logging.basicConfig(level=logging.INFO)
-    asyncio.run(dp.start_polling(bot))
+    asyncio.run(main())
+    async def delete_webhook():
+    await bot.delete_webhook(drop_pending_updates=True)
+
+async def main():
+    await delete_webhook()
+    await dp.start_polling(bot)
