@@ -186,11 +186,13 @@ async def save_correction(message: types.Message, state: FSMContext):
     await send_summary(message)
 
 # Запуск
-if __name__ == "__main__":
-    asyncio.run(main())
-    async def delete_webhook():
+# Удаление вебхука (чтобы polling работал)
+async def delete_webhook():
     await bot.delete_webhook(drop_pending_updates=True)
 
 async def main():
     await delete_webhook()
     await dp.start_polling(bot)
+
+if __name__ == "__main__":
+    asyncio.run(main())
