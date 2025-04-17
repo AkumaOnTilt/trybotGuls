@@ -7,8 +7,9 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
-API_TOKEN = '7910071726:AAFgHCgGpGA2j1mNZdL5N8xm9jhd4VC2gMU'
-ADMIN_ID = 1611776955
+import os
+API_TOKEN = os.getenv("API_TOKEN")
+ADMIN_ID = int(os.getenv("ADMIN_ID"))
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(storage=MemoryStorage())
